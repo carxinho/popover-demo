@@ -8,6 +8,9 @@
 //     popover.style.display = 'none'
 // })
 
+$(popover).on('click',function(e){
+    e.stopPropagation();
+})
 $(clickMe).on('click', function() {
     $(popover).show()
     setTimeout(function() {
