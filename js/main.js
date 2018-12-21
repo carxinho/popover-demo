@@ -1,22 +1,14 @@
-// wrapper.addEventListener('click',function(e){
-//     e.stopPropagation();//阻止事件冒泡
-// })
-// clickMe.addEventListener('click',function(){
-//     popover.style.display = 'block'
-// })
-// document.addEventListener('click',function(){
-//     popover.style.display = 'none'
-// })
+wrapper.addEventListener('click', function (e) {
+    e.stopPropagation()
+  })
+ 
+ var n = true
+  clickMe.addEventListener('click', function (e) {
+    popover.style.display = (n ? 'block' : 'none')
+    n = !n
+  })
 
-$(popover).on('click',function(e){
-    e.stopPropagation();
-})
-$(clickMe).on('click', function() {
-    $(popover).show()
-    setTimeout(function() {
-        $(document).one('click', function() {
-            $(popover).hide()
-        })
-    }, 0)  
-})
-  
+  document.addEventListener('click', function () {
+    popover.style.display = 'none'
+    n = !n
+  })
